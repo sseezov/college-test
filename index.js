@@ -5,9 +5,13 @@ import _ from 'lodash'
 // если вы встречаете цифру в виде строки, ее нужно нормализовать и посчитать тоже
 // выведите итоговый массив в консоль
 function sumArray(arr) {
-    return arr.map(p =>
-        [_.sumBy(p, f => isNaN(Number(f)) ? null : Number(f))]
-    ).map(p => p[0] == null ? [] : p)
+    return arr.map(p => {
+        let sum = _.sumBy(p, f => isNaN(Number(f)) ? null : Number(f))
+        if (sum === null) {
+            return []
+        }
+        return [sum]
+    })
 }
 
 console.log(sumArray(array))

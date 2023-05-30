@@ -12,7 +12,7 @@ const getSum = (data) => {
   return resultArr;
 };
 
-console.log(getSum(array));
+//console.log(getSum(array));
 
 
 // Напишите функцию, которая считает сумму чисел в каждом вложенном массиве
@@ -20,3 +20,14 @@ console.log(getSum(array));
 // если вы встречаете цифру в виде строки, ее нужно нормализовать и посчитать тоже
  
 // выведите итоговый массив в консоль
+
+const nestedNumbers = [[1, 2, 3, 4], [1, 2, 3], [2, 2], [1, 11111], [1, 2, 3]];
+
+const getSumNumbers = nestedNumbers.map((arr) => {
+  return arr.reduce((acc, elem) => {
+    acc += elem;
+    return acc;
+  })
+})
+
+console.log(getSumNumbers);
